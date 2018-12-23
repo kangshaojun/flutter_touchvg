@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="colorpicker">选择颜色</string>
+    <string name="snapshot">截屏</string>
+
+    <!-- 以下来自TouchVG -->
+
+    <string name="shape_too_small">图形太小，请重新绘制</string>
+    <string name="shape1_deleted">已删除一个图形</string>
+    <string name="shape_n_deleted">已删除 %d 个图形</string>
+    <string name="invalid_gridcell">单元格太小或太大</string>
+    <string name="undo">撤销</string>
+    <string name="redo">恢复</string>
+    <string name="undo_ok">已撤销</string>
+    <string name="redo_ok">已恢复</string>
+    <string name="nodept">顶点</string>
+    <string name="centerpt">圆心</string>
+    <string name="midpt">中点</string>
+    <string name="quadpt">象限点</string>
+    <string name="crosspt">交点</string>
+    <string name="nearpt">线上点</string>
+    <string name="perppt">垂足</string>
+    <string name="tanpt">切点</string>
+    <string name="degrees">°</string>
+    <string name="brush">画笔</string>
+    <string name="select">选择</string>
+    <string name="erase">删除</string>
+    <string name="clear">清空</string>
+    <string name="splines">自由画</string>
+    <string name="line">线段</string>
+    <string name="lines">折线</string>
+    <string name="rayline">射线</string>
+    <string name="beeline">无穷直线</string>
+    <string name="bisector">角平分线</string>
+    <string name="triangle">三角形</string>
+    <string name="rect">矩形</string>
+    <string name="square">正方形</string>
+    <string name="diamond">菱形</string>
+    <string name="parallel">平行四边形</string>
+    <string name="quadrangle">四边形</string>
+    <string name="polygon">多边形</string>
+    <string name="dot">点</string>
+    <string name="note">标记</string>
+    <string name="ellipse">椭圆</string>
+    <string name="circle2p">圆心画圆</string>
+    <string name="circle3p">三点画圆</string>
+    <string name="arc_cse">圆规(圆弧)</string>
+    <string name="arc3p">三点圆弧</string>
+    <string name="groupshape">成组图形</string>
+    <string name="circle">圆</string>
+    <string name="roundrect">圆角矩形</string>
+    <string name="imageshape">图像块</string>
+    <string name="arc">圆弧</string>
+    <string name="grid">网格</string>
+    <string name="pathshape">路径块</string>
+
+</resources>

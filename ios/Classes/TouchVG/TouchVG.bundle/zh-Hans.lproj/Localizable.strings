@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings for TouchVG
+*/
+
+"shape_too_small"   = "图形太小，请重新绘制";
+"shape1_deleted"    = "已删除一个图形";
+"shape_n_deleted"   = "已删除 %d 个图形";
+"invalid_gridcell"  = "单元格太小或太大";
+"undo_ok"           = "已撤销";
+"redo_ok"           = "已恢复";
+"nodept"            = "顶点";
+"centerpt"          = "圆心";
+"midpt"             = "中点";
+"quadpt"            = "象限点";
+"crosspt"           = "交点";
+"parallelpt"        = "平行";
+"nearpt"            = "线上点";
+"perppt"            = "垂足";
+"tanpt"             = "切点";
+"degrees"           = "°";
+
+"settings"          = "设置";
+"snap_enabled"      = "允许吸附";
+"snap_vertex"       = "吸附到顶点";
+"snap_center"       = "吸附到圆心";
+"snap_midpoint"     = "吸附到中点";
+"snap_quadrant"     = "吸附到象限点";
+"snap_perp"         = "吸附到垂线";
+"snap_parallel"     = "吸附到平行线";
+"snap_cross"        = "吸附到交点";
+"snap_tangent"      = "吸附到切点";
+"snap_edge"         = "吸附到边";
+"snap_extend"       = "吸附到延长线上";
+"snap_pt_tol"       = "点吸附距离";
+"snap_edge_tol"     = "边吸附距离";
+"snap_toltip"       = "1~100 mm";
+"context_actions"   = "上下文按钮";
+"zoom_enabled"      = "允许放缩";
+"zoom_shape_enabled"    = "允许双指缩放图形";
+"show_magnifier"        = "显示放大镜";
+"start_must_vertex"     = "起点必须吸到顶点";
+"rotate_handle_enabled" = "允许绕顶点旋转";
+"move_handle_enabled"   = "允许移动顶点";
+"move_shape_enabled"    = "允许移动图形";
+"boxsel_enabled"        = "允许框选";
+"degree_decimal"        = "度数小数位";
+"dist_decimal"          = "长度小数位";
+"snap_round_cell"       = "坐标小数位";
