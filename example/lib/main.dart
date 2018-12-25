@@ -32,65 +32,88 @@ class _MyAppState extends State<MyApp> {
               Expanded(
                 child: touchvg,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  IconButton(
-                    icon: Icon(
-                      IconData(61877, fontFamily: 'MaterialCommunityIcons'),
-                      size: 32.0,
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(
+                        IconData(61877, fontFamily: 'MaterialCommunityIcons'),
+                        size: 32.0,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        setCommand("select");
+                      },
                     ),
-                    onPressed: () {
-                      setCommand("select");
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      IconData(62443, fontFamily: 'MaterialCommunityIcons'),
-                      color: Colors.blue,
-                      size: 32.0,
+                    IconButton(
+                      icon: Icon(
+                        IconData(62443, fontFamily: 'MaterialCommunityIcons'),
+                        color: const Color(0xffeaa815),
+                        size: 32.0,
+                      ),
+                      onPressed: () {
+                        setCommand("splines");
+                      },
                     ),
-                    onPressed: () {
-                      setCommand("splines");
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      IconData(61848, fontFamily: 'MaterialCommunityIcons'),
-                      size: 32.0,
+                    IconButton(
+                      icon: Icon(
+                        IconData(61848, fontFamily: 'MaterialCommunityIcons'),
+                        size: 32.0,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                      },
                     ),
-                    onPressed: () {
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      IconData(61950, fontFamily: 'MaterialCommunityIcons'),
-                      size: 32.0,
-                    ),
-                    onPressed: () {
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      IconData(62554, fontFamily: 'MaterialCommunityIcons'),
-                      size: 32.0,
-                    ),
-                    onPressed: () {
-                    },
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      IconData(62614, fontFamily: 'MaterialCommunityIcons'),
-                      size: 32.0,
-                    ),
-                    onPressed: () {
-                    },
-                  ),
+                    IconButton(
+                      icon: Icon(
+                        IconData(61950, fontFamily: 'MaterialCommunityIcons'),
+                        size: 32.0,
+                        color: Colors.white,
 
-
-                ],
+                      ),
+                      onPressed: () {
+                        setCommand("erase");
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        IconData(62554, fontFamily: 'MaterialCommunityIcons'),
+                        size: 32.0,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        undo();
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        IconData(62614, fontFamily: 'MaterialCommunityIcons'),
+                        size: 32.0,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        redo();
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        IconData(61888, fontFamily: 'MaterialCommunityIcons'),
+                        size: 32.0,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        eraseView();
+                      },
+                    ),
+                  ],
+                ),
               ),
+
             ],
           )),
     );
@@ -113,7 +136,23 @@ class _MyAppState extends State<MyApp> {
   Future<void> setCommand(command) async {
 
     await this.controller.setCommand(command);
-    
+  }
+
+  //eraser method
+  Future<void> eraseView() async {
+
+    await this.controller.eraseView();
+
+  }
+
+  //undo method
+  Future<void> undo() async {
+    await this.controller.undo();
+  }
+
+  //redo method
+  Future<void> redo() async {
+    await this.controller.redo();
   }
 
 }

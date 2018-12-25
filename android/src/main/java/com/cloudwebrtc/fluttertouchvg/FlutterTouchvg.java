@@ -55,6 +55,15 @@ public class FlutterTouchvg implements PlatformView,MethodCallHandler {
       Log.d(TAG, "command:" + command);
       this.setCommand(this.vgview,command);
       result.success(null);
+    } else if (call.method.equals("eraseView")){
+      Log.d(TAG, "android:eraseView:");
+      this.eraseView();
+    } else if (call.method.equals("undo")){
+        Log.d(TAG, "android:undo:");
+        this.undo();
+    } else if (call.method.equals("redo")){
+        Log.d(TAG, "android:redo:");
+        this.redo();
     }
     else {
       result.notImplemented();
@@ -111,7 +120,6 @@ public class FlutterTouchvg implements PlatformView,MethodCallHandler {
     return  this.helper.canRedo();
   }
 
-  //  @ReactMethod
   public void undo() {
     this.helper.undo();
   }
@@ -126,12 +134,10 @@ public class FlutterTouchvg implements PlatformView,MethodCallHandler {
 //    promise.resolve(response);
 //  }
 
-  //  @ReactMethod
   public void redo() {
     this.helper.redo();
   }
 
-  //  @ReactMethod
   public void eraseView() {
     this.helper.eraseView();
   }

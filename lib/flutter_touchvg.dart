@@ -62,6 +62,23 @@ class TouchVGController {
     await _channel.invokeMethod('setCommand',<String, dynamic>{'command': command});
   }
 
+  //eraseView
+  Future<void> eraseView() async {
+    print('dart:eraseView:');
+    await _channel.invokeMethod('eraseView');
+  }
+
+  //undo
+  Future<void> undo() async {
+    print('dart:undo:');
+    await _channel.invokeMethod('undo');
+  }
+
+  //redo
+  Future<void> redo() async {
+    print('dart:redo:');
+    await _channel.invokeMethod('redo');
+  }
 
 }
 
