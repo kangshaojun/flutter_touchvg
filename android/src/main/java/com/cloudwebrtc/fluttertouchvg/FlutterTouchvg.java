@@ -33,7 +33,6 @@ public class FlutterTouchvg implements PlatformView,MethodCallHandler {
     vgview = new TouchVGView(this.getContext(), helper);
 
 
-//    this.setCommand(vgview,"splines");
     this.setLineWidth(vgview,60);
     this.setLineColor(vgview,100);
     vgview.helper().setBackgroundColor(100);

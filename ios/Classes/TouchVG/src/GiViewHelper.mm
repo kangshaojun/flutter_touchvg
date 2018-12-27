@@ -1039,7 +1039,7 @@ static GiViewHelper *_sharedInstance = nil;
     if (!_label) {
         _label = [[WDLabel alloc] initWithFrame:CGRectInset(CGRectMake(0,0,100,40), -8, -8)];
         _label.textColor = [UIColor whiteColor];
-        _label.font = [UIFont boldSystemFontOfSize:24.0f];
+        _label.font = [UIFont boldSystemFontOfSize:28.0f];
         _label.textAlignment = NSTextAlignmentCenter;
         _label.opaque = NO;
         _label.backgroundColor = nil;

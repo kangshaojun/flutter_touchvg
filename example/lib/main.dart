@@ -36,6 +36,76 @@ class _MyAppState extends State<MyApp> {
                 decoration: BoxDecoration(
                   color: Colors.black,
                 ),
+                padding: const EdgeInsets.only(bottom: 2.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    //画笔
+                    IconButton(
+                      icon: Icon(
+                        IconData(62443, fontFamily: 'MaterialCommunityIcons'),
+                        color: const Color(0xffeaa815),
+                        size: 28.0,
+                      ),
+                      onPressed: () {
+                        setCommand("splines");
+                      },
+                    ),
+                    //线
+                    IconButton(
+                      icon: Icon(
+                        IconData(62814, fontFamily: 'MaterialCommunityIcons'),
+                        size: 28.0,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        setCommand('line');
+                      },
+                    ),
+                    //圆
+                    IconButton(
+                      icon: Icon(
+                        IconData(63333, fontFamily: 'MaterialCommunityIcons'),
+                        size: 28.0,
+                        color: Colors.white,
+
+                      ),
+                      onPressed: () {
+                        setCommand("ellipse");
+                      },
+                    ),
+                    //正方型
+                    IconButton(
+                      icon: Icon(
+                        IconData(61858, fontFamily: 'MaterialCommunityIcons'),
+                        size: 28.0,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        setCommand('rect');
+                      },
+                    ),
+                    //三角型
+                    IconButton(
+                      icon: Icon(
+                        IconData(62775, fontFamily: 'MaterialCommunityIcons'),
+                        size: 28.0,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        setCommand('triangle');
+                      },
+                    ),
+                  ],
+                ),
+              ),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                ),
+                padding: const EdgeInsets.only(top: 2.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,7 +113,7 @@ class _MyAppState extends State<MyApp> {
                     IconButton(
                       icon: Icon(
                         IconData(61877, fontFamily: 'MaterialCommunityIcons'),
-                        size: 32.0,
+                        size: 28.0,
                         color: Colors.white,
                       ),
                       onPressed: () {
@@ -54,7 +124,7 @@ class _MyAppState extends State<MyApp> {
                       icon: Icon(
                         IconData(62443, fontFamily: 'MaterialCommunityIcons'),
                         color: const Color(0xffeaa815),
-                        size: 32.0,
+                        size: 28.0,
                       ),
                       onPressed: () {
                         setCommand("splines");
@@ -63,7 +133,7 @@ class _MyAppState extends State<MyApp> {
                     IconButton(
                       icon: Icon(
                         IconData(61848, fontFamily: 'MaterialCommunityIcons'),
-                        size: 32.0,
+                        size: 28.0,
                         color: Colors.white,
                       ),
                       onPressed: () {
@@ -72,7 +142,7 @@ class _MyAppState extends State<MyApp> {
                     IconButton(
                       icon: Icon(
                         IconData(61950, fontFamily: 'MaterialCommunityIcons'),
-                        size: 32.0,
+                        size: 28.0,
                         color: Colors.white,
 
                       ),
@@ -83,7 +153,7 @@ class _MyAppState extends State<MyApp> {
                     IconButton(
                       icon: Icon(
                         IconData(62554, fontFamily: 'MaterialCommunityIcons'),
-                        size: 32.0,
+                        size: 28.0,
                         color: Colors.white,
                       ),
                       onPressed: () {
@@ -93,7 +163,7 @@ class _MyAppState extends State<MyApp> {
                     IconButton(
                       icon: Icon(
                         IconData(62614, fontFamily: 'MaterialCommunityIcons'),
-                        size: 32.0,
+                        size: 28.0,
                         color: Colors.white,
                       ),
                       onPressed: () {
@@ -103,7 +173,7 @@ class _MyAppState extends State<MyApp> {
                     IconButton(
                       icon: Icon(
                         IconData(61888, fontFamily: 'MaterialCommunityIcons'),
-                        size: 32.0,
+                        size: 28.0,
                         color: Colors.white,
                       ),
                       onPressed: () {
