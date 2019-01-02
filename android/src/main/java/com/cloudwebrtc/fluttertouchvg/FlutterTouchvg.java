@@ -34,7 +34,7 @@ public class FlutterTouchvg implements PlatformView,MethodCallHandler {
 
 
     this.setLineWidth(vgview,60);
-    this.setLineColor(vgview,100);
+//    this.setLineColor(vgview,100);
     vgview.helper().setBackgroundColor(100);
 
     //初始事件
@@ -63,6 +63,20 @@ public class FlutterTouchvg implements PlatformView,MethodCallHandler {
     } else if (call.method.equals("redo")){
         Log.d(TAG, "android:redo:");
         this.redo();
+    } else if (call.method.equals("setLineWidth")){
+        Log.d(TAG, "android:setLineWidth:");
+        Integer lineWidth = call.argument("lineWidth");
+        Log.d(TAG, "lineWidth:" + lineWidth);
+        this.setLineWidth(this.vgview,lineWidth);
+        result.success(null);
+    } else if (call.method.equals("setLineColor")){
+        Log.d(TAG, "android:setLineColor:");
+        Integer r = call.argument("r");
+        Integer g = call.argument("g");
+        Integer b = call.argument("b");
+        Integer a = call.argument("a");
+        this.setLineColor(this.vgview,r,g,b,a);
+        result.success(null);
     }
     else {
       result.notImplemented();
@@ -163,8 +177,12 @@ public class FlutterTouchvg implements PlatformView,MethodCallHandler {
   }
 
 //  @ReactProp(name = "lineColor")
-  public void setLineColor(TouchVGView view, int c) {
-    view.helper().setLineColor(c);
+//  public void setLineColor(TouchVGView view, int c) {
+//    view.helper().setLineColor(c);
+//  }
+
+  public void setLineColor(TouchVGView view,int r, int g, int b, int a) {
+      view.helper().setLineColor(r,g,b,a);
   }
 
 }

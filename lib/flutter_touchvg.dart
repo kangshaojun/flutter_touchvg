@@ -49,17 +49,27 @@ class TouchVGController {
 
   TouchVGController.init(int id) {
     _channel =  new MethodChannel('flutter_touchvg_$id');
-  }
 
-  Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
+
+//    setLineWidth(40);
+//    setLineColor(255,0,0,255);
   }
 
   //设置command
   Future<void> setCommand(String command) async {
     print('dart:command:' + command);
     await _channel.invokeMethod('setCommand',<String, dynamic>{'command': command});
+  }
+
+  //设置lineWidth
+  Future<void> setLineWidth(int lineWidth) async {
+    print('dart:setLineWidth:' + lineWidth.toString());
+    await _channel.invokeMethod('setLineWidth',<String, dynamic>{'lineWidth': lineWidth});
+  }
+
+  //设置lineColor
+  Future<void> setLineColor(int r, int g, int b,int a) async {
+    await _channel.invokeMethod('setLineColor',<String, dynamic>{'r': r,'g': g,'b': b,'a': a});
   }
 
   //eraseView
@@ -79,6 +89,8 @@ class TouchVGController {
     print('dart:redo:');
     await _channel.invokeMethod('redo');
   }
+
+
 
 }
 
