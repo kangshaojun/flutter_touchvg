@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
                           setState(() {
                             _color = Colors.red;
                           });
-                          setLineColor(255,0,0,255);
+                          setLineColor(254,0,0,255);
                         },
                         child: Container(
                           width: 24.0,
@@ -93,7 +93,7 @@ class _MyAppState extends State<MyApp> {
                           setState(() {
                             _color = Colors.blue;
                           });
-                          setLineColor(0,0,255,255);
+                          setLineColor(0,0,254,255);
                         },
                         child: Container(
                           width: 24.0,
@@ -154,7 +154,7 @@ class _MyAppState extends State<MyApp> {
                           setState(() {
                             _lineWidth = 12.0;
                           });
-                          setLineWidth(40);
+                          setLineWidth(30);
                         },
                         child: Container(
                           width: 24.0,
@@ -210,7 +210,7 @@ class _MyAppState extends State<MyApp> {
                           setState(() {
                             _lineWidth = 20.0;
                           });
-                          setLineWidth(80);
+                          setLineWidth(120);
                         },
                         child: Container(
                           width: 24.0,
@@ -466,14 +466,8 @@ class _MyAppState extends State<MyApp> {
   void onTouchVGCreated(controller) {
     this.controller = controller;
 
-    initPlatformState();
-  }
-
-  Future<void> initPlatformState() async {
-    String platformVersion;
-
-//    platformVersion = await this.controller.platformVersion;
-//    print("platformVersion:::" + platformVersion.toString());
+    setLineWidth(60);
+    setLineColor(255,0,0,255);
   }
 
   Future<void> setCommand(command) async {

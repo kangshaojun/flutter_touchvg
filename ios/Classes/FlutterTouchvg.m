@@ -98,10 +98,8 @@
 
 
 @implementation FlutterTouchvgController {
-    //WKWebView* _webView;
     int64_t _viewId;
     FlutterMethodChannel* _channel;
-    
     TouchVGView  *vgview;
 }
 
@@ -115,8 +113,6 @@
         TouchVGView *v =  [[TouchVGView alloc] init];
         vgview = v;
         
-        //vgview.helper.lineWidth = 100;
-  
         NSString* channelName = [NSString stringWithFormat:@"flutter_touchvg_%lld", viewId];
         _channel = [FlutterMethodChannel methodChannelWithName:channelName binaryMessenger:messenger];
         __weak __typeof__(self) weakSelf = self;
@@ -141,37 +137,76 @@
         NSString* command = argsMap[@"command"];
         [self setCommand:command];
         result(nil);
+    } else if([@"setLineWidth" isEqualToString:call.method]) {
+        CGFloat lineWidth = [argsMap[@"lineWidth"] floatValue];
+        [self setLineWidth:lineWidth];
+        result(nil);
+    } else if([@"setLineColor" isEqualToString:call.method]) {
+        int r = [argsMap[@"r"] intValue];
+        NSNumber *nr = [NSNumber numberWithInt:r];
+        
+        int g = [argsMap[@"g"] intValue];
+        NSNumber *ng = [NSNumber numberWithInt:g];
+        
+        int b = [argsMap[@"b"] intValue];
+        NSNumber *nb = [NSNumber numberWithInt:b];
+        
+        int a = [argsMap[@"a"] intValue];
+        NSNumber *na = [NSNumber numberWithInt:a];
+        
+        [self setLineColor:nr green:ng blue:nb alpha:na];
+        result(nil);
+    } else if ([@"redo" isEqualToString:call.method]) {
+            [self redo];
+            result(nil);
+    } else if ([@"undo" isEqualToString:call.method]) {
+        [self undo];
+        result(nil);
+    } else if ([@"eraseView" isEqualToString:call.method]) {
+       [self eraseView];
+        result(nil);
     } else {
         result(FlutterMethodNotImplemented);
     }
 }
 
+//set command
 - (void)setCommand:(NSString*)cmd {
     [vgview.helper setCommand:cmd];
 }
 
-///////////////////////////
-//TODO
+//set line width -lineWidth/10
+- (void)setLineWidth:(CGFloat)lineWidth {
+    [vgview.helper setLineWidth:-lineWidth/10];
+}
 
-//RCT_CUSTOM_VIEW_PROPERTY(command, NSString, TouchVGView)
-//{
-//    NSString *cmd = (NSString *)json;
-//    NSLog(@"TouchVGView.command( %@ )", cmd);
-//    view.helper.command = cmd;
-//}
-//
-//RCT_CUSTOM_VIEW_PROPERTY(lineWidth, NSString, TouchVGView)
-//{
-//    NSString *cmd = (NSString *)json;
-//    view.helper.lineWidth = [cmd floatValue];
-//}
-//
-//RCT_CUSTOM_VIEW_PROPERTY(strokeWidth, NSString, TouchVGView)
-//{
-//    NSString *cmd = (NSString *)json;
-//    view.helper.strokeWidth = [cmd floatValue];
-//}
-//
+//set line color
+- (void)setLineColor:(nonnull NSNumber *)r
+                 green:(nonnull NSNumber *)g
+                 blue:(nonnull NSNumber *)b
+                 alpha:(nonnull NSNumber *)a {
+    vgview.helper.lineColor = [UIColor colorWithRed:[r floatValue] / 255.0f
+                                                   green:[g floatValue] / 255.0f
+                                                    blue:[b floatValue] / 255.0f
+                                                   alpha:[a floatValue] / 255.0f];
+}
+
+//redo
+- (void)redo {
+    [vgview.helper redo];
+}
+
+//undo
+- (void)undo {
+    [vgview.helper undo];
+}
+
+//delete all
+- (void)eraseView {
+    [vgview.helper eraseView];
+}
+
+///////////////////////////
 //RCT_REMAP_METHOD(snapshot,
 //                 resolver:(RCTPromiseResolveBlock)resolve
 //                 rejecter:(RCTPromiseRejectBlock)reject){
@@ -190,57 +225,11 @@
 //    [self.vgview setBkImage:decodedImage];
 //}
 //
-//RCT_REMAP_METHOD(setLineColor,
-//                 withRed:(nonnull NSNumber *)r
-//                 green:(nonnull NSNumber *)g
-//                 blue:(nonnull NSNumber *)b
-//                 alpha:(nonnull NSNumber *)a )
-//{
-//    self.vgview.helper.lineColor = [UIColor colorWithRed:[r floatValue] / 255.0f
-//                                                   green:[g floatValue] / 255.0f
-//                                                    blue:[b floatValue] / 255.0f
-//                                                   alpha:[a floatValue] / 255.0f];
-//}
-//
 //RCT_EXPORT_METHOD(canUndo){
 //    NSLog(@"TouchVGView.canUndo()");
 //    [self.vgview.helper canUndo];
 //}
 //
-//RCT_EXPORT_METHOD(canRedo){
-//    NSLog(@"TouchVGView.canRedo()");
-//    [self.vgview.helper canRedo];
-//}
-//
-//RCT_EXPORT_METHOD(redo){
-//    NSLog(@"TouchVGView.redo() %p", self);
-//    [self.vgview.helper redo];
-//}
-//
-//RCT_EXPORT_METHOD(undo){
-//    NSLog(@"TouchVGView.undo() %p", self);
-//    [self.vgview.helper undo];
-//}
-//
-//RCT_EXPORT_METHOD(eraseView){
-//    NSLog(@"TouchVGView.eraseView() %p", self);
-//    [self.vgview.helper eraseView];
-//}
-//
-//- (instancetype)init
-//{
-//    if (self = [super init]) {
-//        NSLog(@"TouchVGView.init(): initialized %p", self);
-//    }
-//    return self;
-//}
-//
-//- (UIView *)view {
-//    TouchVGView *v =  [[TouchVGView alloc] init];
-//    self.vgview = v;
-//    return v;
-//}
-
 ///////////////////////////
 @end
 

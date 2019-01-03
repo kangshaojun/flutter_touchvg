@@ -49,10 +49,6 @@ class TouchVGController {
 
   TouchVGController.init(int id) {
     _channel =  new MethodChannel('flutter_touchvg_$id');
-
-
-//    setLineWidth(40);
-//    setLineColor(255,0,0,255);
   }
 
   //设置command
