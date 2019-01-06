@@ -1,5 +1,5 @@
 # flutter_touchvg
-a flutter whiteboard plugin
+a flutter whiteboard plugin.
 
 ## Usage
 - `git clone https://github.com/kangshaojun/flutter_touchvg.git`
