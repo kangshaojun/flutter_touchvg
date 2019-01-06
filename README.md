@@ -9,6 +9,6 @@ a flutter whiteboard plugin
 
 ## screenshots
 # iOS
-![](/screenshots/ios.png {width=40px height=400px})
+<img width="180" height="320" src="https://raw.githubusercontent.com/kangshaojun/flutter_touchvg/master/screenshots/ios.png"/>
 # Android
 ![](/screenshots/android.png {width=40px height=400px})
