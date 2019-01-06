@@ -15,7 +15,10 @@ import io.flutter.plugin.platform.PlatformView;
 import rhcad.touchvg.IViewHelper;
 import rhcad.touchvg.ViewFactory;
 
-/** FlutterTouchvg */
+/**
+ * @author kevin kang
+ * FlutterTouchvg for android
+ */
 public class FlutterTouchvg implements PlatformView,MethodCallHandler {
 
   private static final String TAG = "FlutterTouchvg";
@@ -32,9 +35,6 @@ public class FlutterTouchvg implements PlatformView,MethodCallHandler {
     helper = ViewFactory.createHelper();
     vgview = new TouchVGView(this.getContext(), helper);
 
-
-    this.setLineWidth(vgview,60);
-//    this.setLineColor(vgview,100);
     vgview.helper().setBackgroundColor(100);
 
     //初始事件
@@ -117,18 +117,14 @@ public class FlutterTouchvg implements PlatformView,MethodCallHandler {
 
   }
 
-
   public String getName() {
     return "TouchVGView";
   }
 
-
-//  @ReactMethod
   public boolean canUndo() {
     return  this.helper.canUndo();
   }
 
-  //  @ReactMethod
   public boolean canRedo() {
     return  this.helper.canRedo();
   }
@@ -155,31 +151,21 @@ public class FlutterTouchvg implements PlatformView,MethodCallHandler {
     this.helper.eraseView();
   }
 
-  //  @ReactMethod
   public void setLineColor(int r, int g, int b, int a) {
     this.helper.setLineColor(r,g,b,a);
   }
 
-
-//  @ReactProp(name = "command")
   public void setCommand(TouchVGView view, String cmd) {
     view.helper().setCommand(cmd);
   }
 
-//  @ReactProp(name = "lineWidth")
   public void setLineWidth(TouchVGView view, int w) {
     view.helper().setLineWidth(w);
   }
 
-//  @ReactProp(name = "strokeWidth")
   public void setStrokeWidth(TouchVGView view, int w) {
     view.helper().setStrokeWidth(w);
   }
-
-//  @ReactProp(name = "lineColor")
-//  public void setLineColor(TouchVGView view, int c) {
-//    view.helper().setLineColor(c);
-//  }
 
   public void setLineColor(TouchVGView view,int r, int g, int b, int a) {
       view.helper().setLineColor(r,g,b,a);
