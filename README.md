@@ -9,6 +9,6 @@ a flutter whiteboard plugin
 
 ## screenshots
 # iOS
-<img width="180" height="320" src="https://raw.githubusercontent.com/kangshaojun/flutter_touchvg/master/screenshots/flutter-webrtc-ios-example.png"/> <img width="180" height="320" src="https://raw.githubusercontent.com/cloudwebrtc/flutter-webrtc-demo/master/screenshots/ios-01.jpeg"/> <img width="180" height="320" src="https://raw.githubusercontent.com/cloudwebrtc/flutter-webrtc-demo/master/screenshots/ios-02.jpeg"/>
+![](/screenshots/ios.png)
 # Android
-<img width="180" height="320" src="https://raw.githubusercontent.com/kangshaojun/flutter_touchvg/master/screenshots/flutter-webrtc-android-example.png"/> <img width="180" height="320" src="https://raw.githubusercontent.com/cloudwebrtc/flutter-webrtc-demo/master/screenshots/android-01.png"/> <img width="180" height="320" src="https://raw.githubusercontent.com/cloudwebrtc/flutter-webrtc-demo/master/screenshots/android-02.png"/>
+![](/screenshots/android.png)
