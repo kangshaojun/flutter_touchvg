@@ -15,12 +15,97 @@ class _MyAppState extends State<MyApp> {
   var _lineWidth = 16.0;
   var _tool = 'select';
   var _shape = 'splines';
-
   var rowHeight = 48.0;
 
   @override
   void initState() {
     super.initState();
+  }
+
+  /**
+   * 返回颜色色块
+   * get line color widget
+   */
+  Widget buildLineColor(Color dispColor, int r, int g, int b, int a) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _color = dispColor;
+        });
+        setLineColor(r, g, b, a);
+      },
+      child: Container(
+        width: 24.0,
+        height: 24.0,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          border: Border.all(
+              color: _color == dispColor ? Colors.white : Colors.black,
+              width: 1.0),
+        ),
+        child: Center(
+          child: Container(
+            width: 16.0,
+            height: 16.0,
+            decoration: BoxDecoration(
+              color: dispColor,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /**
+   * 返回线条粗线
+   * get line width widget
+   */
+  Widget buildLineWidth(double dispWidth, double dispCircular, int setValue) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _lineWidth = dispWidth;
+        });
+        setLineWidth(setValue);
+      },
+      child: Container(
+        width: 24.0,
+        height: 24.0,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          border: Border.all(color: Colors.black, width: 1.0),
+        ),
+        child: Center(
+          child: Container(
+            width: dispWidth,
+            height: dispWidth,
+            decoration: BoxDecoration(
+                color: _lineWidth == dispWidth ? Colors.yellow : Colors.white,
+                borderRadius: BorderRadius.circular(dispCircular)),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /**
+   * 返回所画图形
+   * get draw shape widget
+   */
+  Widget buildShape(String shapeValue, int code) {
+    return IconButton(
+      icon: Icon(
+        IconData(code, fontFamily: 'MaterialCommunityIcons'),
+        size: 28.0,
+        color: _shape == shapeValue ? Color(0xffeaa815) : Colors.white,
+      ),
+      onPressed: () {
+        setCommand(shapeValue);
+        setState(() {
+          _shape = shapeValue;
+        });
+      },
+    );
   }
 
   @override
@@ -58,180 +143,12 @@ class _MyAppState extends State<MyApp> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _color = Colors.red;
-                          });
-                          setLineColor(254,0,0,255);
-                        },
-                        child: Container(
-                          width: 24.0,
-                          height: 24.0,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            border: Border.all(
-                                color: _color == Colors.red
-                                    ? Colors.white
-                                    : Colors.black,
-                                width: 1.0),
-                          ),
-                          child: Center(
-                            child: Container(
-                              width: 16.0,
-                              height: 16.0,
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _color = Colors.blue;
-                          });
-                          setLineColor(0,0,254,255);
-                        },
-                        child: Container(
-                          width: 24.0,
-                          height: 24.0,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            border: Border.all(
-                                color: _color == Colors.blue
-                                    ? Colors.white
-                                    : Colors.black,
-                                width: 1.0),
-                          ),
-                          child: Center(
-                            child: Container(
-                              width: 16.0,
-                              height: 16.0,
-                              decoration: BoxDecoration(
-                                color: Colors.blue,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _color = Colors.green;
-                          });
-                          setLineColor(0,128,0,255);
-                        },
-                        child: Container(
-                          width: 24.0,
-                          height: 24.0,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            border: Border.all(
-                                color: _color == Colors.green
-                                    ? Colors.white
-                                    : Colors.black,
-                                width: 1.0),
-                          ),
-                          child: Center(
-                            child: Container(
-                              width: 16.0,
-                              height: 16.0,
-                              decoration: BoxDecoration(
-                                color: Colors.green,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      //粗细
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _lineWidth = 12.0;
-                          });
-                          setLineWidth(30);
-                        },
-                        child: Container(
-                          width: 24.0,
-                          height: 24.0,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            border: Border.all(color: Colors.black, width: 1.0),
-                          ),
-                          child: Center(
-                            child: Container(
-                              width: 12.0,
-                              height: 12.0,
-                              decoration: BoxDecoration(
-                                  color: _lineWidth == 12.0
-                                      ? Colors.yellow
-                                      : Colors.white,
-                                  borderRadius: BorderRadius.circular(6.0)),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _lineWidth = 16.0;
-                          });
-                          setLineWidth(60);
-                        },
-                        child: Container(
-                          width: 24.0,
-                          height: 24.0,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            border: Border.all(color: Colors.black, width: 1.0),
-                          ),
-                          child: Center(
-                            child: Container(
-                              width: 16.0,
-                              height: 16.0,
-                              decoration: BoxDecoration(
-                                  color: _lineWidth == 16.0
-                                      ? Colors.yellow
-                                      : Colors.white,
-                                  borderRadius: BorderRadius.circular(8.0)),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _lineWidth = 20.0;
-                          });
-                          setLineWidth(120);
-                        },
-                        child: Container(
-                          width: 24.0,
-                          height: 24.0,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            border: Border.all(color: Colors.black, width: 1.0),
-                          ),
-                          child: Center(
-                            child: Container(
-                              width: 20.0,
-                              height: 20.0,
-                              decoration: BoxDecoration(
-                                  color: _lineWidth == 20.0
-                                      ? Colors.yellow
-                                      : Colors.white,
-                                  borderRadius: BorderRadius.circular(10.0)),
-                            ),
-                          ),
-                        ),
-                      ),
+                      buildLineColor(Colors.red, 254, 0, 0, 255),
+                      buildLineColor(Colors.blue, 0, 0, 254, 255),
+                      buildLineColor(Colors.green, 0, 128, 0, 255),
+                      buildLineWidth(12.0, 6.0, 30),
+                      buildLineWidth(16.0, 8.0, 60),
+                      buildLineWidth(20.0, 10.0, 120),
                     ],
                   ),
                 ),
@@ -256,85 +173,15 @@ class _MyAppState extends State<MyApp> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       //画笔
-                      IconButton(
-                        icon: Icon(
-                          IconData(62443, fontFamily: 'MaterialCommunityIcons'),
-                          color: _shape == 'splines'
-                              ? Color(0xffeaa815)
-                              : Colors.white,
-                          size: 28.0,
-                        ),
-                        onPressed: () {
-                          setCommand("splines");
-                          setState(() {
-                            _shape = 'splines';
-                          });
-                        },
-                      ),
+                      buildShape('splines', 62443),
                       //线
-                      IconButton(
-                        icon: Icon(
-                          IconData(62814, fontFamily: 'MaterialCommunityIcons'),
-                          size: 28.0,
-                          color: _shape == 'line'
-                              ? Color(0xffeaa815)
-                              : Colors.white,
-                        ),
-                        onPressed: () {
-                          setCommand('line');
-                          setState(() {
-                            _shape = 'line';
-                          });
-                        },
-                      ),
+                      buildShape('line', 62814),
                       //圆
-                      IconButton(
-                        icon: Icon(
-                          IconData(63333, fontFamily: 'MaterialCommunityIcons'),
-                          size: 28.0,
-                          color: _shape == 'ellipse'
-                              ? Color(0xffeaa815)
-                              : Colors.white,
-                        ),
-                        onPressed: () {
-                          setCommand("ellipse");
-                          setState(() {
-                            _shape = 'ellipse';
-                          });
-                        },
-                      ),
+                      buildShape('ellipse', 63333),
                       //正方型
-                      IconButton(
-                        icon: Icon(
-                          IconData(61858, fontFamily: 'MaterialCommunityIcons'),
-                          size: 28.0,
-                          color: _shape == 'rect'
-                              ? Color(0xffeaa815)
-                              : Colors.white,
-                        ),
-                        onPressed: () {
-                          setCommand('rect');
-                          setState(() {
-                            _shape = 'rect';
-                          });
-                        },
-                      ),
+                      buildShape('rect', 61858),
                       //三角型
-                      IconButton(
-                        icon: Icon(
-                          IconData(62775, fontFamily: 'MaterialCommunityIcons'),
-                          size: 28.0,
-                          color: _shape == 'triangle'
-                              ? Color(0xffeaa815)
-                              : Colors.white,
-                        ),
-                        onPressed: () {
-                          setCommand('triangle');
-                          setState(() {
-                            _shape = 'triangle';
-                          });
-                        },
-                      ),
+                      buildShape('triangle', 62775),
                     ],
                   ),
                 ),
@@ -351,7 +198,7 @@ class _MyAppState extends State<MyApp> {
                 decoration: BoxDecoration(
                   color: Colors.black,
                 ),
-                padding: const EdgeInsets.only(top: 4.0,bottom: 4.0),
+                padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -467,7 +314,7 @@ class _MyAppState extends State<MyApp> {
     this.controller = controller;
 
     setLineWidth(60);
-    setLineColor(255,0,0,255);
+    setLineColor(255, 0, 0, 255);
   }
 
   Future<void> setCommand(command) async {
@@ -480,7 +327,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   //设置线宽
-  Future<void> setLineColor(int r, int g, int b,int a) async {
+  Future<void> setLineColor(int r, int g, int b, int a) async {
     await this.controller.setLineColor(r, g, b, a);
   }
 
@@ -498,5 +345,4 @@ class _MyAppState extends State<MyApp> {
   Future<void> redo() async {
     await this.controller.redo();
   }
-
 }
