@@ -7,6 +7,10 @@ a flutter whiteboard plugin.
 - `flutter packages get`
 - `flutter run`
 
+## Study
+此插件配有视频教程:
+https://ke.qq.com/course/391960?tuin=10ea64b9
+
 ## screenshots
 # iOS
 <img width="300" height="580" src="https://raw.githubusercontent.com/kangshaojun/flutter_touchvg/master/screenshots/ios.png"/>
